@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'modus-operandi)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -121,7 +121,7 @@
          :base-directory "/Users/visco/Documents/code/Software-Performance-Docs/org/"
          :base-extension "org"
          :recursive t  ;; This will include all subdirectories
-         :publishing-directory "/Users/visco/Documents/code/Software-Performance-Docs/html/"
+         :publishing-directory "/Users/pietrovisconti/Documents/"
          :publishing-function org-twbs-publish-to-html
          :with-sub-superscript nil
          )))
@@ -140,55 +140,12 @@
                         (file-name-sans-extension rel)
                         ".html"))))
 
-;; JAVA LSP
-(setq lsp-java-java-path "/Users/visco/.asdf/installs/java/adoptopenjdk-11.0.22+7/bin/java")
-(setq lsp-disabled-clients '(semgrep-ls))
-(setq lsp-java-jdt-download-url  "https://download.eclipse.org/jdtls/milestones/0.57.0/jdt-language-server-0.57.0-202006172108.tar.gz")
+;; SCALA RUN
+(global-set-key (kbd "C-c C-r") #'sbt-do-run)
 
-(require 'go-translate)
-(setq gts-translate-list '(("en" "it") ("it" "en")))
-
-;; (setq gts-default-translator (gts-translator :engines (gts-bing-engine)))
-
-(setq gts-default-translator
-      (gts-translator
-       :picker (gts-prompt-picker)
-       :engines (list (gts-bing-engine) (gts-google-engine))
-       :render (gts-buffer-render)))
-
-(defun translate-en-to-it ()
-  (interactive)
-  (setq gts-translate-list '(("en" "it")))
-  (gts-translate (gts-translator
-                  :picker (gts-noprompt-picker)
-                  :engines (gts-google-engine)
-                  :render (gts-buffer-render))))
-
-(defun translate-it-to-en ()
-  (interactive)
-  (setq gts-translate-list '(("it" "en")))
-  (gts-translate (gts-translator
-                  :picker (gts-noprompt-picker)
-                  :engines (gts-google-engine)
-                  :render (gts-buffer-render))))
-
-;; GOLANG LSP
-(with-eval-after-load 'lsp-mode
-  (lsp-register-custom-settings
-   '(("golangci-lint.command"
-      ["golangci-lint" "run" "--enable-all" "--disable" "lll" "--out-format" "json" "--issues-exit-code=1"])))
-
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection
-                                     '("golangci-lint-langserver"))
-                    :activation-fn (lsp-activate-on "go")
-                    :language-id "go"
-                    :priority 0
-                    :server-id 'golangci-lint
-                    :add-on? t
-                    :library-folders-fn #'lsp-go--library-default-directories
-                    :initialization-options (lambda ()
-                                              (gethash "golangci-lint"
-                                                       (lsp-configuration-section "golangci-lint"))))))
-
-(setq flycheck-golangci-lint-deadline nil)
+;; SSH
+(customize-set-variable
+ 'tramp-ssh-controlmaster-options
+ (concat
+  "-o ControlPath=/tmp/ssh-ControlPath-%%r@%%h:%%p "
+  "-o ControlMaster=auto -o ControlPersist=yes"))
