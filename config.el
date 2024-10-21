@@ -93,7 +93,8 @@
 
 ;; LATEX
 (require 'ox-latex)
-(setq org-latex-pdf-process '("/Library/TeX/texbin/latexmk -pdf %f"))
+(setq org-latex-pdf-process '("/Library/TeX/texbin/latexmk -shell-escape -pdf %f"))
+(setq org-latex-listings 'minted)
 
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
@@ -139,6 +140,10 @@
                         (file-name-as-directory (expand-file-name dest))
                         (file-name-sans-extension rel)
                         ".html"))))
+
+;;YAS SNIPPETS
+(setq yas-snippet-dirs '("~/.doom.d/snippets"))
+(yas-global-mode 1)
 
 ;; SCALA RUN
 (global-set-key (kbd "C-c C-r") #'sbt-do-run)

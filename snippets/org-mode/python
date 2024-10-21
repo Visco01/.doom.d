@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: python
+# key: <py
+# --
+#+ATTR_LATEX: :options frame=single,linenos=true,style=colorful
+#+BEGIN_SRC python
+$0
+#+END_SRC

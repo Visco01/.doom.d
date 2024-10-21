@@ -14,6 +14,9 @@
 #+LATEX_HEADER: \usepackage[colorlinks]{hyperref}
 #+LATEX_HEADER: \hypersetup{colorlinks, linkcolor=blue, urlcolor=bblue}
 
+% Colorizing code in a nicer way.
+#+LATEX_HEADER: \usepackage{minted}
+
 % Moving up the title.
 #+LATEX_HEADER: \usepackage{titling}
 #+LATEX_HEADER: \setlength{\droptitle}{-6em}
