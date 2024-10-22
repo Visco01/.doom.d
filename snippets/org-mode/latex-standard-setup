@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: latex-standard-setup
+# key: <standard-setup
+# --
+#+SETUPFILE: /Users/pietrovisconti/.config/doom/latex-standard-setup.org
+$0
