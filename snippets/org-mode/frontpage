@@ -1,0 +1,34 @@
+# -*- mode: snippet -*-
+# name: FrontPage
+# key: <front
+# --
+#+OPTIONS: toc:nil
+
+#+BEGIN_EXPORT latex
+% University logo at the top
+\begin{flushleft}
+    \includegraphics[width=0.5\textwidth]{./img/logo.png$0}
+\end{flushleft}
+
+% University name
+\vspace{0.7cm}
+\begin{center}
+    %{\Large \textbf{Università Ca' Foscari Venezia}}\\[1.5cm]
+    \textbf{Pretitle 1}\\
+    Pretitle 2\\[2cm]
+    \textbf{\large Pretitle 3}\\[0.5cm]
+    {\Huge \textbf{Title}}\\[4cm]
+\end{center}
+
+% Author information at the bottom
+\vfill
+\begin{flushleft}
+    \textbf{Author:} Pietro Visconti\\
+    \textbf{Matriculation Number:} 885448\\
+    \textbf{Academic year:} 2024-25
+\end{flushleft}
+#+END_EXPORT
+
+#+LATEX: \newpage
+#+TOC: headlines 2
+#+LATEX: \newpage

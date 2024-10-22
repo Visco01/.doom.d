@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Table Of Contents
+# key: <toc
+# --
+#+OPTIONS: toc:nil
+#+LATEX: \newpage
+#+TOC: headlines 2
+#+LATEX: \newpage
+$0
