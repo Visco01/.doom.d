@@ -1,0 +1,36 @@
+# -*- mode: snippet -*-
+# name: accademic-setup
+# key: <accademic-setup
+# --
+#+SETUPFILE: /Users/pietrovisconti/.config/doom/latex-accademic-setup.org
+#+OPTIONS: toc:nil
+
+#+BEGIN_EXPORT latex
+% University logo at the top
+\begin{flushleft}
+\includegraphics[width=0.5\textwidth]{./img/logo.png}
+\end{flushleft}
+
+% University name
+\vspace{0.7cm}
+\begin{center}
+    {\Large \textbf{Ca' Foscari University of Venice}}\\\[1.5cm]
+    \textbf{Computer Science and Information Technology}\\\
+    Software Development and Engineering\\\[2cm]
+    \textbf{\large Master Thesis}\\\[0.5cm]
+    {\Large \textbf{Improvement performance of in-house tooling by paralleling
+computing flows}}\\\[4cm]
+\end{center}
+
+% Author information at the bottom
+\vfill
+\begin{flushleft}
+    \textbf{Author:} Pietro Visconti\\\
+    \textbf{Matriculation Number:} 885448\\\
+    \textbf{Academic year:} 2024-25
+\end{flushleft}
+#+END_EXPORT
+
+#+LATEX: \newpage
+#+TOC: headlines 2
+#+LATEX: \newpage
