@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'modus-operandi)
+(setq doom-theme 'doom-city-lights)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -79,6 +79,8 @@
 (map! :map global-map "M-w" #'kill-ring-save)
 (setq mac-command-modifier 'meta)
 (global-set-key (kbd "M-n") #'duplicate-line)
+(set-frame-parameter (selected-frame) 'alpha '(85 . 85))
+(add-to-list 'default-frame-alist '(alpha . (85 . 85)))
 
 ;; COPILOT
 (use-package! copilot
@@ -141,12 +143,16 @@
                         (file-name-sans-extension rel)
                         ".html"))))
 
+(setq org-agenda-files '("~/Documents/org/agenda.org"))
+
 ;;YAS SNIPPETS
 (setq yas-snippet-dirs '("~/.doom.d/snippets"))
 (yas-global-mode 1)
 
 ;; SCALA RUN
-(global-set-key (kbd "C-c C-r") #'sbt-do-run)
+(add-hook 'scala-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c C-r") #'sbt-do-run)))
 
 ;; SSH
 (customize-set-variable
