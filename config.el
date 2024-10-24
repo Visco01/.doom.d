@@ -79,8 +79,11 @@
 (map! :map global-map "M-w" #'kill-ring-save)
 (setq mac-command-modifier 'meta)
 (global-set-key (kbd "M-n") #'duplicate-line)
-(set-frame-parameter (selected-frame) 'alpha '(85 . 85))
-(add-to-list 'default-frame-alist '(alpha . (85 . 85)))
+(global-set-key (kbd "C-c C-r") #'comment-region)
+(global-set-key (kbd "C-c C-u") #'uncomment-region)
+(global-set-key (kbd "C-c C-l") #'comment-line)
+;; (set-frame-parameter (selected-frame) 'alpha '(85 . 85))
+;; (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
 
 ;; COPILOT
 (use-package! copilot
