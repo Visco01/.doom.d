@@ -155,7 +155,8 @@
 ;; SCALA RUN
 (add-hook 'scala-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c C-r") #'sbt-do-run)))
+            (local-set-key (kbd "C-c C-c") #'sbt-do-run)
+            (setq tab-width 2)))
 
 ;; SSH
 (customize-set-variable
